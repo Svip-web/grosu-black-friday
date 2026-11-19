@@ -16,6 +16,13 @@
     if (sending || !form.reportValidity()) return;
     const fields = new FormData(form);
     const submittedRequestId = requestId;
+    const name = fields.get('name').trim();
+    if (!name) {
+      status.hidden = false;
+      status.textContent = 'Укажите ваше имя.';
+      form.elements.name.focus();
+      return;
+    }
     const phone = fields.get('phone').replace(/[\s().-]/g, '');
     if (!/^\+[1-9]\d{7,14}$/.test(phone)) {
       status.hidden = false;
@@ -49,16 +56,21 @@
         body: JSON.stringify({
           ...Object.fromEntries(Object.entries(attribution).filter(([key]) => key !== 'fbc' && key !== 'fbp')),
           title: 'Предоплата с сайта ЧП 20$',
-          stage: 69790684,
+          stage: 106874727,
+          upstage: 106875715,
           product: 'Etsy',
           type_lead: 'Горячий',
+          type_lead_pay: 'Автооплата',
+          pack_pay: 'Бронь',
           tag: '399$/599$/899$;blackfriday',
           currency: 'USD',
-          req: 'no_pay_etsy',
+          req: 'etsy_pay_4',
           amount: 20,
-          name: fields.get('name').trim(),
+          tp: 'https://www.juliagrosuschool.us/thanks',
+          name,
           email: fields.get('email').trim(),
           phone,
+          Phone: phone,
           system_url: location.href,
           system_exid: submittedRequestId,
           system_fbc: attribution.fbc || '',
@@ -66,21 +78,23 @@
         })
       });
       const result = await response.json();
-      const dealId = result?.dealId;
-      const validId = (typeof dealId === 'number' || typeof dealId === 'string' && /^\d+$/.test(dealId))
-        && Number.isSafeInteger(Number(dealId)) && Number(dealId) > 0;
-      const accepted = validId || result?.success === true || result?.state === true;
-      if (!response.ok || !result || Array.isArray(result) || result.error || result.success === false || result.state === false || !accepted) {
+      if (!response.ok || !result || typeof result !== 'object' || Array.isArray(result)
+        || result.error || result.success === false || result.state === false) {
         throw new Error('Не удалось передать заявку. Попробуйте ещё раз чуть позже.');
       }
-      const checkout = new URL('https://buy.stripe.com/00wdR8cd1bW80LHg5gfbq0D');
-      checkout.searchParams.set('client_reference_id', submittedRequestId);
+      if (typeof result.paymentUrl !== 'string' || !result.paymentUrl.trim()) {
+        throw new Error('Не удалось открыть оплату. Попробуйте ещё раз чуть позже.');
+      }
+      const checkout = new URL(result.paymentUrl);
+      if (checkout.protocol !== 'https:' || checkout.username || checkout.password) {
+        throw new Error('Не удалось открыть оплату. Попробуйте ещё раз чуть позже.');
+      }
       location.assign(checkout.href);
     } catch (error) {
       status.hidden = false;
       status.textContent = error.name === 'AbortError'
         ? 'Ответ задерживается. Попробуйте ещё раз чуть позже.'
-        : 'Не удалось передать заявку. Проверьте соединение и попробуйте ещё раз.';
+        : 'Не удалось открыть оплату. Проверьте соединение и попробуйте ещё раз.';
     } finally {
       clearTimeout(timeout);
       sending = false;
