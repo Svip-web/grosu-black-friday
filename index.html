@@ -5,10 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Black Friday — забронируй скидку до −70% | Юлия Гросу</title>
 <meta name="description" content="Black Friday: забронируй скидку от −30% до −70% на AI-платформу, AI-сотрудника Лию и обучение по Etsy. Предоплата $20.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap">
-<link rel="stylesheet" href="css/style.css?v=c5d2c3c375">
+<link rel="preload" href="fonts/unbounded-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css?v=62ce7f4763">
 </head>
 <body>
 
@@ -44,7 +43,7 @@
     <div class="hero-sale" aria-hidden="true">SALE</div>
     <div class="hero-frame">
       <div class="under" aria-hidden="true"></div>
-      <img src="images/julia.jpg" alt="Юлия Гросу" width="1024" height="1280">
+      <img src="images/julia.webp" srcset="images/julia-mobile.webp 264w, images/julia.webp 960w" sizes="(max-width:760px) 132px, (max-width:1100px) 40vw, 480px" alt="Юлия Гросу" width="1024" height="1280" fetchpriority="high" decoding="async">
       <div class="sticker" aria-hidden="true"><b>−50%</b><small>SALE</small></div>
       <div class="hero-cap"><b>Юлия Гросу</b><span>Эксперт по Etsy и AI-инструментам</span></div>
     </div>
@@ -104,7 +103,7 @@
   </div>
   <div class="media">
     <div class="video">
-      <video controls playsinline preload="metadata" src="video/lia.mp4" aria-label="Видео-презентация Лии"></video>
+      <video controls playsinline preload="none" poster="images/lia-poster.webp" src="video/lia.mp4" aria-label="Видео-презентация Лии"></video>
     </div>
     <span>Посмотри, как работает твой AI-сотрудник и какие задачи он поможет упростить.</span>
   </div>

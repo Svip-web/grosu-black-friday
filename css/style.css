@@ -1,3 +1,36 @@
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url(../fonts/manrope-cyrillic.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url(../fonts/manrope-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 700 900;
+  font-display: swap;
+  src: url(../fonts/unbounded-cyrillic.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 700 900;
+  font-display: swap;
+  src: url(../fonts/unbounded-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 /* Black Friday — AI для Etsy (Юлия Гросу) */
 :root{
   --orange:#FF6B00; --orange-2:#FF8A2B; --orange-dark:#C24E00;
@@ -34,7 +67,7 @@ ul{margin:0;padding:0;list-style:none}
   background:linear-gradient(110deg,#FF6B00 0%,#FFB342 28%,#FFD477 48%,#FF962E 72%,#FF6B00 100%);
   background-size:280% 100%;
   box-shadow:0 6px 24px rgba(255,107,0,.3);
-  animation:button-gradient 4.8s ease-in-out infinite,button-pulse 2.6s ease-in-out infinite;
+  animation:button-gradient 4.8s ease-in-out infinite,button-pulse 1.6s ease-in-out infinite;
 }
 .btn-orange:hover{color:var(--black);box-shadow:0 8px 30px rgba(255,138,43,.45)}
 .btn-orange::before{
@@ -175,87 +208,6 @@ ul{margin:0;padding:0;list-style:none}
 .footer{padding-top:36px;padding-bottom:36px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;font-size:14px;color:var(--muted)}
 .footer b{font-family:var(--display);color:var(--white)}
 
-/* ===== СТРАНИЦА 2 (апсейл) ===== */
-.topbar{position:sticky;top:0;z-index:5;background:var(--orange);color:var(--black);padding:12px 16px;display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;justify-content:center;font-weight:800;font-size:15px;letter-spacing:.04em;text-align:center}
-.topbar .t{font-family:var(--display);font-weight:900;font-size:20px;background:var(--black);color:var(--white);padding:6px 14px;border-radius:8px;font-variant-numeric:tabular-nums}
-.up-head{max-width:1120px;margin:0 auto;padding:88px 32px 64px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:28px}
-.up-head h1{font-weight:900;font-size:clamp(28px,4.8vw,68px);line-height:1.05;text-transform:uppercase}
-.up-head p{font-size:clamp(17px,1.6vw,21px);line-height:1.6;color:var(--soft);max-width:720px}
-.up-head .urgent{font-family:var(--display);font-weight:700;font-size:clamp(20px,2vw,28px);color:var(--orange)}
-.timer{display:flex;gap:14px;align-items:center}
-.timer .cell{border-radius:20px;padding:18px 26px;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:120px}
-.timer .cell b{font-family:var(--display);font-weight:900;font-size:clamp(52px,7vw,96px);line-height:1;font-variant-numeric:tabular-nums}
-.timer .cell small{font-size:13px;font-weight:800;letter-spacing:.12em;color:var(--soft)}
-.timer .colon{font-family:var(--display);font-weight:900;font-size:60px}
-.timer.dark .cell{background:var(--card);border:1.5px solid var(--orange);color:var(--white)}
-.timer.dark .colon{color:var(--orange)}
-.timer.on-orange .cell{background:var(--black);color:var(--white)}
-.expired{display:none;border-radius:20px;padding:20px 28px;font-family:var(--display);font-weight:700;font-size:22px}
-.is-expired .timer{display:none} .is-expired .expired{display:block}
-.expired.dark{background:var(--card);border:1.5px solid var(--orange)}
-.expired.on-orange{background:var(--black);color:var(--white)}
-
-.o1{padding-top:24px}
-.o1 .box{background:var(--card);border:1.5px solid var(--line);border-radius:32px;padding:clamp(22px,4vw,56px);display:flex;flex-wrap:wrap;gap:48px}
-.o1 .main{flex:999 1 520px;min-width:0;display:flex;flex-direction:column;gap:26px}
-.otag{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-.otag span:first-child{font-weight:800;font-size:14px;letter-spacing:.12em;color:var(--orange)}
-.otag .badge{font-size:13px;padding:5px 9px}
-.o-title{font-weight:900;font-size:clamp(26px,3.4vw,46px);line-height:1.08;text-transform:uppercase}
-.curator{border:2px solid var(--orange);border-radius:22px;padding:28px;display:flex;flex-direction:column;gap:18px;background:#1C140D}
-.curator .h{display:flex;gap:16px;align-items:center}
-.curator .ic{width:56px;height:56px;border-radius:16px;background:var(--orange);display:flex;align-items:center;justify-content:center;flex:none}
-.curator h3{font-weight:700;font-size:22px;line-height:1.2}
-.curator ul{display:flex;flex-direction:column;gap:12px;font-size:17px;line-height:1.45;color:var(--soft)}
-.curator ul strong{color:var(--white)}
-.cur-lead{font-size:17px;line-height:1.5;color:var(--orange-2);font-weight:700}
-.pod{border:1.5px solid var(--white);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:8px}
-.pod .t1{font-weight:800;font-size:13px;letter-spacing:.12em;color:var(--orange)}
-.pod h3{font-weight:700;font-size:20px;line-height:1.2}
-.pod p{font-size:15px;line-height:1.5;color:var(--soft)} .pod p b{color:var(--orange)}
-.o1 .side{flex:1 1 320px;min-width:0;display:flex;flex-direction:column;justify-content:center}
-.pricebox{background:var(--black);border:1.5px solid var(--line);border-radius:24px;padding:32px;display:flex;flex-direction:column;gap:18px}
-.pricebox .lbl{font-size:14px;font-weight:800;letter-spacing:.1em;color:var(--muted)}
-.pricebox .strike{font-size:28px}
-.pay-lbl{font-size:15px;font-weight:800;letter-spacing:.06em}
-.pay-big{font-family:var(--display);font-size:72px;line-height:.95;font-weight:900}
-.pricebox .pay-big{color:var(--orange)}
-.or{max-width:1200px;margin:0 auto;padding:40px 32px;display:flex;align-items:center;gap:20px}
-.or span{flex:1;height:1px;background:var(--line)}
-.or b{font-family:var(--display);font-weight:900;font-size:20px;color:var(--orange);letter-spacing:.1em}
-
-.o2{padding-bottom:104px}
-.o2 .box{position:relative;background:var(--white);color:var(--black);border:3px solid var(--orange);border-radius:32px;overflow:hidden;display:flex;flex-wrap:wrap}
-.o2 .photo{flex:1 1 360px;min-width:0;position:relative;min-height:420px;background:#2B2B2B}
-.o2 .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%}
-.o2 .best{position:absolute;top:24px;left:24px;background:var(--orange);color:var(--black);font-weight:900;font-size:13px;padding:8px 14px;border-radius:999px;letter-spacing:.1em}
-.o2 .cap{position:absolute;left:20px;right:20px;bottom:20px;background:rgba(11,11,11,.88);color:var(--white);border-radius:18px;padding:18px 20px;display:flex;flex-direction:column;gap:4px}
-.o2 .cap b{font-family:var(--display);font-size:18px} .o2 .cap span{font-size:14px;color:var(--soft)}
-.o2 .main{flex:999 1 560px;min-width:0;padding:clamp(22px,4vw,56px);display:flex;flex-direction:column;gap:26px}
-.o2 .otag span:first-child{color:var(--orange-dark)}
-.o2 .otag .badge{background:var(--black);color:var(--white)}
-.o2 .lead{font-size:19px;line-height:1.55;color:#3D3D3D}
-.julia{background:var(--black);color:var(--white);border-radius:22px;padding:28px;display:flex;flex-direction:column;gap:18px}
-.julia .grp{font-size:13px;font-weight:800;letter-spacing:.12em;color:var(--orange)}
-.julia ul{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
-.julia li{display:flex;gap:12px;align-items:flex-start}
-.julia .ic{width:40px;height:40px;border-radius:12px;background:var(--orange);display:flex;align-items:center;justify-content:center;flex:none}
-.julia li > span:last-child{display:flex;flex-direction:column;gap:2px}
-.julia strong{font-size:17px} .julia em{font-style:normal;font-size:15px;color:var(--soft);line-height:1.45}
-.also .lbl{display:block;font-size:13px;font-weight:800;letter-spacing:.12em;color:var(--orange-dark);margin-bottom:12px}
-.also.ai{background:#FFF3EA;border:1.5px solid var(--orange);border-radius:20px;padding:22px}
-.also ul{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px 20px;font-size:16px;line-height:1.45}
-.o2 .buy{border-top:1px solid #E2E2E2;padding-top:26px;display:flex;flex-wrap:wrap;gap:24px;align-items:flex-end;justify-content:space-between}
-.o2 .buy > div{display:flex;flex-direction:column;gap:6px}
-.o2 .strike{font-size:26px;color:#6B6B6B}
-.o2 .buy .btn{flex:1 1 260px;max-width:380px}
-
-.final{background:var(--orange);color:var(--black)}
-.final .inner{max-width:1120px;margin:0 auto;padding:88px 32px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px}
-.final h2{font-weight:900;font-size:clamp(28px,4vw,56px);line-height:1.06;text-transform:uppercase}
-.final p{font-size:24px;line-height:1.55;font-weight:800;max-width:680px}
-.final .btns{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
-
 /* ===== ТЕЛЕФОН ===== */
 @media (max-width:760px){
   body{overflow-x:clip}
@@ -310,33 +262,7 @@ ul{margin:0;padding:0;list-style:none}
   .who .box{padding:24px}
   .why h3{font-size:20px}
 
-  /* Апсейл */
-  .topbar{flex-wrap:nowrap;justify-content:space-between;padding:10px 14px;font-size:11px;letter-spacing:.02em;text-align:left;gap:10px}
-  .topbar .t{font-size:17px;padding:5px 10px;flex:none}
-  .up-head{padding:36px 16px 28px;gap:20px}
-  .up-head h1{font-size:23px;line-height:1.12}
-  .up-head .urgent{font-size:20px}
-  .timer{gap:8px}
-  .timer .cell{min-width:0;padding:12px 18px;border-radius:16px}
-  .timer .cell b{font-size:52px}
-  .timer .colon{font-size:40px}
-  .o1 .box,.o2 .main{gap:24px}
-  .o-title{font-size:21px;line-height:1.12}
-  .curator{padding:18px}
-  .curator .ic{width:44px;height:44px;border-radius:12px}
-  .curator .ic svg{width:22px;height:22px}
-  .curator h3{font-size:17px;line-height:1.25}
-  .curator ul{font-size:15px}
-  .pod h3{font-size:17px}
-  .julia{padding:18px}
-  .pay-big{font-size:56px}
-  .or{padding:24px 16px}
-  .o2{padding-bottom:64px}
-  .o2 .photo{min-height:300px;flex-basis:100%}
-  .final .inner{padding:56px 16px}
-  .final h2{font-size:24px}
-  .final p{font-size:19px}
-  .final .btns .btn,.o2 .buy .btn{width:100%;max-width:none}
+
 }
 
 @media (max-width:760px) and (prefers-reduced-motion:reduce), (max-width:760px) and (max-height:500px){
