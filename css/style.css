@@ -34,7 +34,7 @@ ul{margin:0;padding:0;list-style:none}
   background:linear-gradient(110deg,#FF6B00 0%,#FFB342 28%,#FFD477 48%,#FF962E 72%,#FF6B00 100%);
   background-size:280% 100%;
   box-shadow:0 6px 24px rgba(255,107,0,.3);
-  animation:button-gradient 4.8s ease-in-out infinite;
+  animation:button-gradient 4.8s ease-in-out infinite,button-pulse 2.6s ease-in-out infinite;
 }
 .btn-orange:hover{color:var(--black);box-shadow:0 8px 30px rgba(255,138,43,.45)}
 .btn-orange::before{
@@ -50,9 +50,10 @@ ul{margin:0;padding:0;list-style:none}
   transform:skewX(-20deg);
   animation:button-shine 6s ease-in-out infinite;
 }
-.btn-orange:disabled{animation-play-state:paused}
+.btn-orange:disabled{animation:none;scale:1}
 .btn-orange:disabled::before{animation:none;opacity:0}
 @keyframes button-gradient{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@keyframes button-pulse{0%,100%{scale:1}50%{scale:1.03}}
 @keyframes button-shine{0%,45%{transform:translateX(0) skewX(-20deg)}75%,100%{transform:translateX(450%) skewX(-20deg)}}
 .btn-white{background:var(--white);color:var(--black)} .btn-white:hover{color:var(--black)}
 .btn-black{background:var(--black);color:var(--white)} .btn-black:hover{color:var(--white)}
